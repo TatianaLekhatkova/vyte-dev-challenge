@@ -1,8 +1,8 @@
 class Appointnment {
     constructor(id, start, end, attendees, maxAttendees) {
         this._id = id;
-        this._start = start;
-        this._end = end;
+        this._start = new Date;
+        this._end = new Date;
         this._attendees = attendees;
         this._maxAttendees = maxAttendees;
     }
@@ -14,7 +14,7 @@ class Appointnment {
     get maxAttendees() { return this._maxAttendees }
 
     addAttendee(name, email) {
-        if (getDate() < start) {
+        if (Date.now() < start) {
             this._attendees.push(name, email)
         }
         else alert("The meeting has already started")
@@ -46,6 +46,15 @@ class Appointnment {
         else { return false }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

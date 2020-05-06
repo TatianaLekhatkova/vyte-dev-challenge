@@ -8,3 +8,5 @@ class User{
 
 user = new User ("Nick", "nick@mail.com");
 console.log(user.name);
+var date = new Date();
+console.log(date.getDate() + "/"+ date.getMonth() + "/" + date.getFullYear());
