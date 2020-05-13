@@ -1,3 +1,4 @@
+import * as Appointment from "./Appointment"
 testL1()
 {
     var attendees = [{
@@ -27,6 +28,4 @@ testL1()
     test.assert(appointment._attendees.length === 5)
     appointment.removeAttendee("ira@mail.com")
     test.assert(appointment._attendees.length === 4)
-
-
 }

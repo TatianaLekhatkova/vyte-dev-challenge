@@ -39,4 +39,45 @@ class Calendar {
         return result
 }
 
+    /*First slot begins start time. Next slot starts the end time of previous*/
+    slotsBetweenDates(start, end, duration) {
+        var result = [];
+        var beginTime = start;
+        var endTime = start + duration;
+        while (endTime < end) {
+            var slot = {
+                _begin: beginTime,
+                _end: endTime
+            }
+            result.push(slot)
+            beginTime = endTime;
+            endTime += duration
+        }
+        return result
+    }
+
+    availableSlotsBetweenDates(start, end, duration) {
+        var result = [];
+        var beginTime = start;
+        var endTime = start + duration;
+        while (endTime < end) {
+            var slot = {
+                _begin: beginTime,
+                _end: endTime
+            }
+            if (canAddSlot(slot)) {
+                result.push(slot)
+            }
+            beginTime = endTime;
+            endTime += duration            
+        }
+        return result
+    }
+
+    canAddSlot (slot) {
+        var appointments = this.getAppointmentsBetweenDates(slot._begin, slot._end)
+        return appointments.length === 0 || appointments.every(item => item.isAvailable())
+
+}
+
 }
